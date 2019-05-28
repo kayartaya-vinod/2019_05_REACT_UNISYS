@@ -1,56 +1,12 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "name": "Jane Doe",
-      "email": "bharvett0@senate.gov",
-      "phone": "3243285464",
-      "city": "East Angus",
-      "picture": "http://kvinod.com/old_ci/randomdata/images/women/1.jpg"
-    },
-    {
-      "id": 2,
-      "name": "Tommi Ferre",
-      "gender": "Female",
-      "email": "tferre1@bigcartel.com",
-      "phone": "7549705255",
-      "city": "Xiangcheng",
-      "picture": "http://kvinod.com/old_ci/randomdata/images/women/2.jpg"
-    },
-    {
-      "id": 3,
-      "name": "Corrianne Nowill",
-      "gender": "Female",
-      "email": "cnowill2@whitehouse.gov",
-      "phone": "9709698575",
-      "city": "East London",
-      "picture": "http://kvinod.com/old_ci/randomdata/images/women/3.jpg"
-    },
-    {
       "id": 4,
       "name": "John Doe",
       "email": "cgatch3@eepurl.com",
       "phone": "4681034277",
       "city": "Batobato",
       "picture": "http://kvinod.com/old_ci/randomdata/images/men/4.jpg"
-    },
-    {
-      "id": 5,
-      "name": "Aaron Vallentine",
-      "gender": "Male",
-      "email": "avallentine4@furl.net",
-      "phone": "2325126892",
-      "city": "Shuren",
-      "picture": "http://kvinod.com/old_ci/randomdata/images/men/5.jpg"
-    },
-    {
-      "id": 6,
-      "name": "Diane Priditt",
-      "gender": "Female",
-      "email": "dpriditt5@weibo.com",
-      "phone": "3808680918",
-      "city": "Solčava",
-      "picture": "http://kvinod.com/old_ci/randomdata/images/women/6.jpg"
     },
     {
       "id": 7,
@@ -897,6 +853,15 @@
       "phone": "3376737233",
       "city": "Doctor Juan León Mallorquín",
       "picture": "http://kvinod.com/old_ci/randomdata/images/women/100.jpg"
+    },
+    {
+      "name": "Vinod Kumar",
+      "gender": "Male",
+      "email": "vinod@vinod.co",
+      "phone": "9731424784",
+      "city": "Bangalore",
+      "picture": "https://avatars3.githubusercontent.com/u/14976510?s=460&v=4",
+      "id": 101
     }
   ]
 }
