@@ -1,34 +1,65 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import ContactCard from './ContactCard';
-
-let baseUrl = 'http://localhost:4000/contacts/';
+import Dashboard from './Dashboard';
+import * as service from './contact-service';
 
 class App extends Component {
 
     state = {
-        contact: {}
+        contacts: [],
+        editingContact: null
     };
 
-    async componentDidMount() {
-        // fetch(baseUrl+4)
-        // .then(resp=>resp.json())
-        // .then(data=>{
-        // });
-        let resp = await fetch(baseUrl + 4);
-        let contact = await resp.json();
-        
-        // this changes the state; but will not trigger any lifecycle method
-        //this.state.contact = contact; 
-        
-        // this changes the state and triggers the render() lifecycle method
-        this.setState({ contact });
+    setEditingContact = (editingContact) => {
+        this.setState({ editingContact });
+    }
+
+    updateContact = (contact) => {
+        service.updateContact(contact)
+            .then(contact => {
+                let contacts = [...this.state.contacts];
+                let index = contacts.findIndex(c => c.id === contact.id);
+                if (index !== -1) {
+                    contacts[index] = contact;
+                }
+                this.setState({ contacts, editingContact: null });
+            });
+    }
+
+    addContact = (contact) => {
+        service.addContact(contact)
+            .then(contact => {
+                let contacts = [contact, ...this.state.contacts];
+                this.setState({ contacts });
+            });
+    }
+
+    deleteContact = (id) => {
+        service.deleteContact(id)
+            .then(() => {
+                let contacts = [...this.state.contacts];
+                let index = contacts.findIndex(contact => contact.id === id);
+                if (index !== -1) {
+                    contacts.splice(index, 1);
+                    this.setState({ contacts });
+                }
+            });
+    }
+
+    componentDidMount() {
+        service.getAllContacts()
+            .then(contacts => this.setState({ contacts }));
     }
 
     render() {
-        console.log('render called!', new Date());
         return (
-            <ContactCard contact={this.state.contact} />
+            <Dashboard
+                updateContact={this.updateContact}
+                editingContact={this.state.editingContact}
+                setEditingContact={this.setEditingContact}
+                addContact={this.addContact}
+                deleteContact={this.deleteContact}
+                contacts={this.state.contacts} />
         );
     }
 }
