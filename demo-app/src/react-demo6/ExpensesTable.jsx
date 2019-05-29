@@ -1,6 +1,6 @@
 import React from 'react';
 import store from './ExpensesStore';
-import {observer} from 'mobx-react';
+import { observer } from 'mobx-react';
 
 const ExpensesTable = () => (
     <div>
@@ -10,6 +10,7 @@ const ExpensesTable = () => (
                 <tr>
                     <th>Description</th>
                     <th>Amount</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -18,6 +19,13 @@ const ExpensesTable = () => (
                         <tr key={exp.description}>
                             <td>{exp.description}</td>
                             <td>{exp.amount}</td>
+                            <td>
+                                <button className="btn btn-danger"
+                                    onClick={() => {
+                                        store.deleteExpense(exp.description);
+                                    }}
+                                >x</button>
+                            </td>
                         </tr>
                     ))
                 }
