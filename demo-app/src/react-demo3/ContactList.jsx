@@ -2,8 +2,9 @@
 
 import React from 'react';
 import ContactCard from './ContactCard';
+import { loadingHoc } from './loading-hoc';
 
-export default function ContactList({ contacts, deleteContact, setEditingContact }) {
+function ContactList({ contacts, deleteContact, setEditingContact }) {
 
     let contactCards = contacts.map(contact => (
         <div className="col-md-4 col-sm-6" key={contact.id}>
@@ -17,3 +18,6 @@ export default function ContactList({ contacts, deleteContact, setEditingContact
         {contactCards}
     </div>
 }
+
+// export default loadingHoc(ContactList, 'contacts');
+export default loadingHoc('contacts')(ContactList);

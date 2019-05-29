@@ -33,7 +33,8 @@ const Dashboard = ({ contacts, deleteContact, addContact,
                 <div className="col-md-9">
                     <ContactList
                         setEditingContact={setEditingContact}
-                        deleteContact={deleteContact} contacts={contacts} />
+                        deleteContact={deleteContact} 
+                        contacts={contacts} />
                 </div>
             </div>
 

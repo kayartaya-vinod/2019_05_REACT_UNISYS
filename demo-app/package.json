@@ -6,6 +6,9 @@
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "json-server": "^0.15.0",
+    "mobx": "^5.9.4",
+    "mobx-react": "^5.4.4",
+    "mobx-state-tree": "^3.14.0",
     "popper.js": "^1.15.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -16,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "rest-server": "json-server --delay 5000 --port 4000 --watch db/data.json"
+    "rest-server": "json-server --delay 2000 --port 4000 --watch db/data.json"
   },
   "eslintConfig": {
     "extends": "react-app"

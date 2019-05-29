@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import MyContext from './MyContext';
 
 class ContactForm extends Component {
@@ -10,6 +10,10 @@ class ContactForm extends Component {
         city: '',
         picture: '/assets/images/default.jpg'
     };
+    constructor(props) {
+        super(props);
+        console.log(props);
+    }
 
     changeHandler = ({ target }) => {
         this.setState({ [target.name]: target.value });
@@ -86,5 +90,3 @@ class ContactForm extends Component {
         );
     }
 }
-
-export default ContactForm;
