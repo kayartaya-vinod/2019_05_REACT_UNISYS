@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import store from './ExpensesStore';
+import { inject} from 'mobx-react';
 
 class ExpenseForm extends Component {
 
@@ -7,7 +7,7 @@ class ExpenseForm extends Component {
         evt.preventDefault();
         let description = this.descriptionTf.value;
         let amount = this.amountTf.value;
-        store.addOrUpdateExpense({ description, amount });
+        this.props.store.addOrUpdateExpense({ description, amount });
         this.descriptionTf.value = '';
         this.amountTf.value = '';
     }
@@ -15,7 +15,6 @@ class ExpenseForm extends Component {
     render() {
         return (
             <form onSubmit={this.submitHandler} className="form">
-                {/* .form-group*2>(label+input.form-control) */}
                 <div className="form-group">
                     <label htmlFor="description">Description</label>
                     <input type="text" className="form-control"
@@ -35,4 +34,4 @@ class ExpenseForm extends Component {
     }
 }
 
-export default ExpenseForm;
+export default inject('store')(ExpenseForm);

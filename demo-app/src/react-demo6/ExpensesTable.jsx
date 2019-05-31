@@ -1,8 +1,8 @@
 import React from 'react';
-import store from './ExpensesStore';
 import { observer } from 'mobx-react';
+import { inject} from 'mobx-react';
 
-const ExpensesTable = () => (
+const ExpensesTable = ({store}) => (
     <div>
         <h5>Here are your expenses details</h5>
         <table className="table table-bordered table-striped table-hover">
@@ -39,4 +39,4 @@ const ExpensesTable = () => (
         </table>
     </div>
 );
-export default observer(ExpensesTable);
+export default inject('store')(observer(ExpensesTable));

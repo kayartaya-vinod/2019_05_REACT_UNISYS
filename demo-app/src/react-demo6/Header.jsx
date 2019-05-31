@@ -1,11 +1,11 @@
 import React from 'react';
-import store from './ExpensesStore';
+import { inject} from 'mobx-react';
 import { observer } from 'mobx-react';
 
-const Header = () => (
+const Header = ({store}) => (
     <div>
         <h3>There are {store.expenseCount} expenses for this month.</h3>
     </div>
 );
 
-export default observer(Header);
+export default inject('store')(observer(Header));
